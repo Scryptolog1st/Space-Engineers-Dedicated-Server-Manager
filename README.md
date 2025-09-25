@@ -52,9 +52,9 @@ Or use Task Scheduler to run elevated on startup.
 
 ▶️ Usage
 Run the script manually:
+   ```powershell
+   .\se_server_manager.ps1
 
-    ```powershell
-    .\se_server_manager.ps1
 Or schedule it (recommended):
 
 Open Task Scheduler
