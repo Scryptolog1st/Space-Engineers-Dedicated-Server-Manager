@@ -35,68 +35,72 @@ This script keeps your SE server updated, backed up, monitored, and auto-restart
 2. **Edit configuration**  
    Open the script in VS Code and update the following:
    ```powershell
-   $steamCmdPath       = "E:\SteamCMD\steamcmd.exe"
-   $serverInstallDir   = "E:\SEDS"
+   $steamCmdPath       = "C:\SteamCMD\steamcmd.exe"
+   $serverInstallDir   = "C:\SEDS"
    $serverInstancePath = "C:\ProgramData\SpaceEngineersDedicated\InstanceName"
-   $backupPath         = "C:\SEDS Backups"
+   $backupPath         = "C:\SEDS\Backups"
    $discordWebhookUrl  = "https://discord.com/api/webhooks/XXXX/XXXX"
-Save as UTF-8 with BOM
-In VS Code: File → Save with Encoding → UTF-8 with BOM.
-(Prevents emoji garbling in Discord.)
+   ```
 
-Run as Administrator
+3. **Save as UTF-8 with BOM**  
+   In VS Code: *File → Save with Encoding → UTF-8 with BOM*.  
+   (Prevents emoji garbling in Discord.)
 
-Right-click → Run with PowerShell (Admin)
+4. **Run as Administrator**  
+   - Right-click → *Run with PowerShell (Admin)*  
+   - Or use Task Scheduler to run elevated on startup.
 
-Or use Task Scheduler to run elevated on startup.
+---
 
-▶️ Usage
+## ▶️ Usage
+
 Run the script manually:
-   ```powershell
-   .\se_server_manager.ps1
+
+```powershell
+.\se_server_manager.ps1
+```
 
 Or schedule it (recommended):
 
-Open Task Scheduler
+Open **Task Scheduler** →  
+Create Task → Run with highest privileges  
 
-Create Task → Run with highest privileges
-
-Trigger: At startup or login
-
+Trigger: **At startup or login**  
 Action: Run powershell.exe or pwsh.exe with:
 
-    ```arduino
-    -File "C:\Path\se_server_manager.ps1"
-🖥️ Discord Notifications
+```powershell
+-File "C:\Path\se_server_manager.ps1"
+```
+
+---
+
+## 🖥️ Discord Notifications
 The script sends embed-only messages like:
 
-🔄 Update Check
+- 🔄 Update Check  
+- 💾 Backup Started  
+- ✅ Backup Successful  
+- 🧹 Backup Cleanup  
+- 🚀 Server Starting  
+- 💥 Crash Detected  
+- 🛑 Server Stopped  
 
-💾 Backup Started
+Each embed includes a title, description, timestamp, and footer (`Server Manager`).
 
-✅ Backup Successful
+---
 
-🧹 Backup Cleanup
+## 🔧 Troubleshooting
+- **Emoji showing as `ðŸ§¹`** → Save script as **UTF-8 with BOM**.  
+- **No Discord messages** → Check webhook URL validity & firewall.  
+- **SteamCMD errors** → Ensure `$steamCmdPath` is correct and reachable.  
+- **Server not found** → Verify `$serverInstallDir` path and confirm `SpaceEngineersDedicated.exe` exists.
 
-🚀 Server Starting
+---
 
-💥 Crash Detected
-
-🛑 Server Stopped
-
-Each embed includes a title, description, timestamp, and footer (Server Manager).
-
-🔧 Troubleshooting
-Emoji showing as ðŸ§¹ → Save script as UTF-8 with BOM.
-
-No Discord messages → Check webhook URL validity & firewall.
-
-SteamCMD errors → Ensure $steamCmdPath is correct and reachable.
-
-Server not found → Verify $serverInstallDir path and confirm SpaceEngineersDedicated.exe exists.
-
-📜 License
+## 📜 License
 MIT License — free to use, modify, and distribute. Credit appreciated.
 
-🤝 Contributing
+---
+
+## 🤝 Contributing
 Pull requests are welcome! Open an issue for bugs, suggestions, or feature requests.
