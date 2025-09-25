@@ -53,9 +53,8 @@ Or use Task Scheduler to run elevated on startup.
 ▶️ Usage
 Run the script manually:
 
-powershell
-Copy code
-.\se_server_manager.ps1
+    ```powershell
+    .\se_server_manager.ps1
 Or schedule it (recommended):
 
 Open Task Scheduler
@@ -66,9 +65,8 @@ Trigger: At startup or login
 
 Action: Run powershell.exe or pwsh.exe with:
 
-arduino
-Copy code
--File "C:\Path\se_server_manager.ps1"
+    ```arduino
+    -File "C:\Path\se_server_manager.ps1"
 🖥️ Discord Notifications
 The script sends embed-only messages like:
 
